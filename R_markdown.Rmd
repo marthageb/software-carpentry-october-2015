@@ -1,0 +1,48 @@
+---
+title: "My Project"
+author: "Martha Gebhardt"
+date: "Sunday, October 04, 2015"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+max(cars$dist)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=TRUE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+
+data1 <- read.table(file = "../output/combined_gapMinder.tsv", header=T)
+
+Afghanistan <- subset(data1, country =="Afghanistan")
+Algeria <- subset(data1, country =="Algeria")
+Albania <- subset(data1, country=="Albania")
+
+par(mfrow = c(1,3))
+
+plot1 <- plot(Afghanistan$year, Afghanistan$gdpPercap, ylab="gdp per capita", xlab="year", main="Afghanistan yearly GDP")
+abline (lm(Afghanistan$gdpPercap~Afghanistan$year))
+
+plot2 <- plot(Algeria$year, Algeria$gdpPercap, ylab="gdp per capita", xlab="year", main="Algeria yearly GDP")
+abline (lm(Algeria$gdpPercap~Algeria$year))
+
+plot3 <- plot(Albania$year, Albania$gdpPercap, ylab="gdp per capita", xlab="year", main="Albania yearly GDP")
+abline (lm(Albania$gdpPercap~Albania$year))
+
+`````
+Overtime, Afghanistan resulted in a decrease in GDP while Algeria and Albania had an increase.
+
+
