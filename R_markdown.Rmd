@@ -42,7 +42,16 @@ abline (lm(Algeria$gdpPercap~Algeria$year))
 plot3 <- plot(Albania$year, Albania$gdpPercap, ylab="gdp per capita", xlab="year", main="Albania yearly GDP")
 abline (lm(Albania$gdpPercap~Albania$year))
 
-`````
+dev.off()
+```
 Overtime, Afghanistan resulted in a decrease in GDP while Algeria and Albania had an increase.
+
+```{r}
+aggregate(data1$lifeExp, list(data1$continent), mean)
+aggregate(data1$lifeExp, list(data1$continent), min)
+aggregate(data1$lifeExp, list(data1$continent), max)
+```
+If you want to live to be an old person, Oceania seems like the best place to live. Theyhave the highest average life expectancy (74.33), the highest minimum life expectancy (69.12), and the third highest maximum life expectancy (81.24).
+If you want to try to die before you get old, Africa seems like the place for you. There is the lowest average, minimum, and maximum life expectancy there over the time period studied.
 
 
